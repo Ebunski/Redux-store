@@ -1,0 +1,33 @@
+@use "./functions";
+
+//colors
+$primary-color: #272727 !default;
+$secondary-color: #ff652f !default;
+
+//font
+$font-base: 1rem !default;
+$font-big: 5rem !default;
+$font-medium: 400 !default;
+$font-heavy: 700 !default;
+
+//spacing
+$spacing-xs: 0.4rem !default;
+$spacing-sm: 1rem !default;
+$spacing-md: 2rem;
+
+//transition
+$transition: all 0.5s ease-in-out !default;
+
+//screens (em unit is better than rem for screens)
+//similar to object in js
+$breakpoints-up: (
+  "medium": px-to-em(700),
+  "large": px-to-em(900),
+  "xlarge": px-to-em(1440),
+) !default;
+
+$breakpoints-down: (
+  "small": px-to-em(699.98),
+  "medium": px-to-em(899.98),
+  "large": px-to-em(1439.98),
+) !default;

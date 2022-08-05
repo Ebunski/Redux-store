@@ -1,0 +1,28 @@
+@use "./variables" as *;
+@use "./functions" as *;
+
+//param:default value
+@mixin flex($direction) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+@mixin top-right($top, $right) {
+  top: $top;
+  right: $right;
+}
+
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
