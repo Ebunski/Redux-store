@@ -1,0 +1,40 @@
+@use "../utils/" as *;
+
+.details {
+  @include grid(2, 20);
+
+  &__image {
+    justify-self: center;
+    max-height: 500px;
+  }
+
+  &__content {
+    @include flex(column, center);
+    gap: px-to-rem(15);
+    padding: px-to-rem(30);
+    text-align: center;
+    background-color: $secondary-color;
+    &--title {
+      font-weight: $font-thick;
+    }
+    &--price {
+      @extend .button;
+      padding: px-to-rem(10);
+      color: $secondary-color;
+      background-color: $primary-color;
+    }
+    &--category {
+      color: $gray;
+    }
+    &--description {
+      padding-block: px-to-rem(10);
+      line-height: 1.5;
+    }
+    &--button {
+      @extend .button;
+      padding: px-to-rem(10);
+      color: $secondary-color;
+      background-color: black;
+    }
+  }
+}

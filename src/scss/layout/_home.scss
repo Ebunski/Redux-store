@@ -1,26 +1,60 @@
-@use "../utils" as *;
+@use "../utils/" as *;
 
-.home {
-  height: 100%;
-  padding-top: 40vh;
-  @include flex(column);
-  text-align: center;
-  background: linear-gradient(
-      to right,
-      rgba($primary-color, 0.9),
-      rgba($primary-color, 0.3)
-    ),
-    url("../images/model.jpg") center top;
-  background-size: cover;
+.products-list {
+  @include grid(2, 10);
 
-  &__name {
-    padding-bottom: $spacing-sm;
-    margin-top: $spacing-sm;
-    border-bottom: 2px solid set-text-color($primary-color);
+  @include breakpoint-up(large) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-    &__last {
-      font-weight: $font-heavy;
-      transition: $transition;
+  .product {
+    position: relative;
+    display: flex;
+    width: min(px-to-rem(250), px-to-rem(400));
+    text-align: center;
+    flex-direction: column;
+    color: $tertiary-color;
+    background-color: $secondary-color;
+    box-shadow: $light-shadow;
+    padding: px-to-rem(20);
+    border-radius: $radius-md;
+
+    &:hover {
+      box-shadow: $light-shadow;
+    }
+    &__image {
+      object-fit: contain;
+      width: 100%;
+      height: px-to-rem(100);
+    }
+    &__content {
+      padding-block: px-to-rem(20);
+
+      &--title {
+        font-weight: $font-thick;
+      }
+      &--price {
+        @include top-right(10, 10);
+        padding: px-to-rem(10);
+        background-color: lighten($primary-color, 10%);
+        border-radius: $radius-md;
+        color: $secondary-color;
+      }
+      &--category {
+        text-transform: capitalize;
+      }
+    }
+    &__footer {
+      @include flex(row, space-between);
+      &--button {
+        @extend .button;
+        padding: px-to-rem(10);
+        &:hover {
+          background: lighten($primary-color, 10%);
+          transition: $transition;
+          color: $secondary-color;
+        }
+      }
     }
   }
 }

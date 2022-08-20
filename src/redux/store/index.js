@@ -1,10 +1,17 @@
 import react from "react";
-import { createStore } from "redux";
+import {
+  legacy_createStore as createStore,
+  applyMiddleware,
+  compose,
+} from "redux";
+import thunk from "redux-thunk";
 import { allReducers } from "../reducers/index.js";
 
-const store = createStore(
-  allReducers,
+const allStoreEnhancers = compose(
+  applyMiddleware(thunk),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
+
+const store = createStore(allReducers, allStoreEnhancers);
 
 export default store;

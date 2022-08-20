@@ -1,11 +1,7 @@
-import {
-  ADD_PRODUCT,
-  REMOVE_PRODUCT,
-  SET_PRODUCTS,
-} from "../constants/actionTypes";
+import { SET_PRODUCTS } from "../constants/actionTypes";
 
 const productsState = {
-  products: [{ id: 1, title: "Ebun", category: "programmer" }],
+  productsList: [],
 };
 
 export default function productReducer(
@@ -14,7 +10,10 @@ export default function productReducer(
 ) {
   switch (type) {
     case SET_PRODUCTS:
-      return state;
+      return {
+        ...state,
+        productsList: payload.products,
+      };
     default:
       return state;
   }

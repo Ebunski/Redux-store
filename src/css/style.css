@@ -1,0 +1,165 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background-color: fff;
+  color: #000;
+  height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+@media only screen and (min-width: 43.75em) {
+  h1 {
+    font-size: 3.375rem;
+  }
+}
+@media only screen and (min-width: 56.25em) {
+  h1 {
+    font-size: 3.75rem;
+  }
+}
+
+h2 {
+  font-size: clamp(2rem, 1rem + 2vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.75rem, 0.875rem + 1.8vw, 2rem);
+}
+
+h4 {
+  font-size: clamp(1rem, 0.625rem + 1.5vw, 1.75rem);
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+a:hover {
+  color: white;
+}
+
+p {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+.section {
+  margin-inline: auto;
+  width: min(100%, 1170px);
+  color: black;
+  padding-inline: 1rem;
+}
+@media only screen and (min-width: 43.75em) {
+  .section {
+    padding-inline: 4rem;
+  }
+}
+
+.button {
+  padding-inline: 0.625rem;
+  padding-block: 0.625rem;
+  text-transform: uppercase;
+  border: transparent;
+  border-radius: 0.3125rem;
+}
+
+header {
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding-block: 1.25rem;
+}
+header .nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow: hidden;
+  padding-inline: 0.625rem;
+}
+@media only screen and (min-width: 43.75em) {
+  header .nav {
+    padding-inline: 1rem;
+  }
+}
+header .nav__logo {
+  color: purple;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow: hidden;
+  gap: 0.3125rem;
+}
+header .nav__logo svg {
+  height: clamp(2rem, 1rem + 2vw, 3rem);
+}
+header .nav__logo--title {
+  padding-top: 0.625rem;
+}
+header .nav__button {
+  font-size: clamp(2rem, 1rem + 2vw, 3rem);
+  color: purple;
+}
+
+.products-list {
+  padding-block: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 0.625rem;
+}
+@media only screen and (min-width: 56.25em) {
+  .products-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.products-list .product {
+  display: grid;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem;
+  border-radius: px-to-rem(10);
+}
+.products-list .product:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.products-list .product__image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}/*# sourceMappingURL=style.css.map */

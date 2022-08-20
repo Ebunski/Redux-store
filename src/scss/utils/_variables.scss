@@ -1,33 +1,48 @@
 @use "./functions";
+@use "sass:math" as math;
+
+//function::
+@function px-to-rem($pixels) {
+  @if math.is-unitless($pixels) {
+    @return math.div($pixels, 16) + rem;
+  } @else {
+    @error "Don't add units to the rem() function, only number";
+  }
+}
 
 //colors
-$primary-color: #272727 !default;
-$secondary-color: #ff652f !default;
+$secondary-color: white !default;
+$primary-color: purple !default;
+$tertiary-color: black;
+$gray: grey;
+$home-color: hsl(0, 0%, 90%);
 
 //font
 $font-base: 1rem !default;
 $font-big: 5rem !default;
 $font-medium: 400 !default;
-$font-heavy: 700 !default;
+$font-thick: 700 !default;
 
 //spacing
 $spacing-xs: 0.4rem !default;
 $spacing-sm: 1rem !default;
 $spacing-md: 2rem;
 
+//shadow
+$light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+$dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
 //transition
 $transition: all 0.5s ease-in-out !default;
 
+//width
+$max-width: 1170px;
+//variables file
+
+//border
+$radius-sm: px-to-rem(5);
+$radius-md: px-to-rem(10);
+$radius-lg: 50%;
+
 //screens (em unit is better than rem for screens)
 //similar to object in js
-$breakpoints-up: (
-  "medium": px-to-em(700),
-  "large": px-to-em(900),
-  "xlarge": px-to-em(1440),
-) !default;
-
-$breakpoints-down: (
-  "small": px-to-em(699.98),
-  "medium": px-to-em(899.98),
-  "large": px-to-em(1439.98),
-) !default;

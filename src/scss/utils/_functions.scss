@@ -10,14 +10,6 @@
   }
 }
 
-@function px-to-rem($pixels) {
-  @if math.is-unitless($pixels) {
-    @return math.div($pixels, 16) + rem;
-  } @else {
-    @error "Don't add units to the rem() function, only number";
-  }
-}
-
 @function px-to-em($pixels) {
   @if math.is-unitless($pixels) {
     @return math.div($pixels, 16) + em;
