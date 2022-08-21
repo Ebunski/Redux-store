@@ -9,10 +9,9 @@
 
   .product {
     position: relative;
-    display: flex;
+    @include flex(column, null);
     width: min(px-to-rem(250), px-to-rem(400));
     text-align: center;
-    flex-direction: column;
     color: $tertiary-color;
     background-color: $secondary-color;
     box-shadow: $light-shadow;

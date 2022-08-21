@@ -24,11 +24,22 @@ header {
         padding-top: px-to-rem(10);
       }
     }
-
-    &__button {
-      @extend .button;
-      font-size: $header-font;
-      color: $primary-color;
+    &__cart {
+      position: relative;
+      &--button {
+        @extend .button;
+        font-size: $header-font;
+        color: $primary-color;
+      }
+      &--items {
+        position: absolute;
+        @include top-right(-12, 7);
+        border-radius: $radius-lg;
+        color: $secondary-color;
+        background: $tertiary-color;
+        font-weight: $font-medium;
+        padding: px-to-rem(5) px-to-rem(8);
+      }
     }
   }
 }

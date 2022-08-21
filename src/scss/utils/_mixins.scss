@@ -5,11 +5,12 @@
 //param:default value
 @mixin flex($direction, $justify) {
   display: flex;
-  flex-direction: $direction;
+  @if ($justify != null) {
+    flex-direction: $direction;
+  }
   align-items: center;
   justify-content: $justify;
   flex-wrap: wrap;
-  overflow: hidden;
 }
 
 @mixin grid($cols, $gap) {

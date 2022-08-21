@@ -1,8 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { addProduct } from "../redux/actionCreators/cartActions";
 
-function Product({ id, category, description, image, price, rating, title }) {
+function Product({
+  id,
+  category,
+  description,
+  image,
+  price,
+  rating,
+  title,
+  add,
+}) {
   return (
     <div className="product">
       <img className="product__image" src={image} alt={title} />
@@ -19,12 +29,22 @@ function Product({ id, category, description, image, price, rating, title }) {
           <button className="product__footer--button">More details</button>
         </Link>
         <div>
-          <button>Add to Cart</button>
+          <button
+            className="product__footer--button"
+            onClick={() => add({ id, image, price, title })}
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>
   );
 }
 function mapStateToProps(state, ownProps) {}
+function mapDispatchToProps(dispatch) {
+  return {
+    add: (obj) => dispatch(addProduct(obj)),
+  };
+}
 
-export default connect(mapStateToProps)(Product);
+export default connect(null, mapDispatchToProps)(Product);
