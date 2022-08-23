@@ -10,13 +10,6 @@
   }
 }
 
-//colors
-$secondary-color: white !default;
-$primary-color: purple !default;
-$tertiary-color: black;
-$gray: grey;
-$home-color: hsl(0, 0%, 90%);
-
 //font
 $font-base: 1rem !default;
 $font-big: 5rem !default;
@@ -27,7 +20,6 @@ $font-thick: 700 !default;
 $spacing-xs: 0.4rem !default;
 $spacing-sm: 1rem !default;
 $spacing-md: 2rem;
-
 //shadow
 $light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 $dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);

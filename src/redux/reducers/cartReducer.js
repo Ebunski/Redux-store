@@ -12,7 +12,7 @@ const initialState = {
   totalAmount: 0,
 };
 
-export default function productReducer(state = initialState, action) {
+export default function cartReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_TO_CART:
       const newItem = action.payload;
@@ -47,7 +47,7 @@ export default function productReducer(state = initialState, action) {
     case REMOVE_FROM_CART:
       return {
         ...state,
-        cartItems: state.cartItems.filter((x) => x.id !== action.payload),
+        cartItems: state.cartItems.filter((x) => x.id !== action.payload.id),
       };
 
     case CLEAR_CART:
@@ -59,16 +59,17 @@ export default function productReducer(state = initialState, action) {
         0
       );
       let totalPrice = state.cartItems.reduce(
-        (prev, curr) => prev + curr.price * curr.amount,
+        (prev, curr) => prev + curr.price * curr.quantity,
         0
       );
+
       totalPrice = new Intl.NumberFormat("en-uk", {
         maximumFractionDigits: 2,
       }).format(totalPrice);
       return {
         ...state,
-        totalPrice: totalAmount,
-        totalAmount: totalPrice,
+        totalPrice: totalPrice,
+        totalAmount: totalAmount,
       };
 
     default:

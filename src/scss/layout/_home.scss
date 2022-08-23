@@ -47,12 +47,6 @@
       @include flex(row, space-between);
       &--button {
         @extend .button;
-        padding: px-to-rem(10);
-        &:hover {
-          background: lighten($primary-color, 10%);
-          transition: $transition;
-          color: $secondary-color;
-        }
       }
     }
   }

@@ -1,0 +1,52 @@
+@use "../utils" as *;
+
+.cart {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .cart-item-container {
+    display: flex;
+    background: $secondary-color;
+    flex-direction: column;
+    gap: px-to-rem(10);
+    padding: px-to-rem(10);
+    margin-bottom: px-to-rem(15);
+    border-radius: $radius-md;
+  }
+  .cart-item {
+    display: flex;
+    align-items: center;
+    gap: px-to-rem(10);
+
+    &__image {
+      height: 200px;
+    }
+    &__text {
+      display: flex;
+      flex-direction: column;
+
+      gap: px-to-rem(10);
+
+      &--title {
+        display: flex;
+        flex-wrap: wrap;
+        font-weight: $font-medium;
+      }
+      &--price {
+        font-weight: $font-thick;
+        color: $primary-color;
+      }
+    }
+  }
+
+  .cart-buttons {
+    @include flex(row, space-around);
+    gap: px-to-rem(20);
+    .quantity-buttons {
+      @include flex(row, space-between);
+      gap: px-to-rem(10);
+      background: darken($secondary-color, 20%);
+    }
+  }
+}
