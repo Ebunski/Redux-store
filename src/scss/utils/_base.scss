@@ -89,13 +89,12 @@ main {
 
 section {
   margin-inline: auto;
-  padding-top: $spacing-lg;
-  width: min(100%, $max-width);
+  padding-top: $spacing-xl;
   color: black;
   padding-inline: $spacing-md;
 
   @include breakpoint-up(medium) {
-    padding-inline: $spacing-lg;
+    padding-inline: $spacing-xl;
   }
 }
 button {

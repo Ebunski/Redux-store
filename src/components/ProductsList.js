@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Product from "./Product";
 import Loading from "./Loading";
+import PoorConnection from "./PoorConnection";
 import { connect } from "react-redux";
 import { fetchProducts } from "../redux/actionCreators/productActions";
 import { AiOutlineWarning } from "react-icons/ai";
@@ -15,19 +16,8 @@ function ProductsList({ productsList = [], loading, getProducts }) {
     getProducts();
   }, []);
 
-  if (loading.state)
-    return (
-      <div className="center">
-        <Loading />
-      </div>
-    );
-  if (loading.error)
-    return (
-      <div className="center">
-        <AiOutlineWarning className="error-svg" />
-        <h3> Please check your internet connection </h3>
-      </div>
-    );
+  if (loading.state) return <Loading />;
+  if (loading.error) return <PoorConnection />;
 
   const renderList = productsList.map((x) => <Product key={x.id} {...x} />);
 

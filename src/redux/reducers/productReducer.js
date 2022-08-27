@@ -1,4 +1,4 @@
-import { SET_PRODUCTS } from "../constants/actionTypes";
+import { SET_PRODUCTS, FILTER_PRODUCTS } from "../constants/actionTypes";
 
 const initialState = {
   productsList: [],
@@ -11,8 +11,13 @@ export default function productReducer(
   switch (type) {
     case SET_PRODUCTS:
       return {
-        ...state,
         productsList: payload.products,
+      };
+    case FILTER_PRODUCTS:
+      return {
+        productsList: state.productsList.filter(
+          (x) => x.category === payload.item
+        ),
       };
     default:
       return state;

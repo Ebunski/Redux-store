@@ -12,20 +12,40 @@
   align-items: center;
   justify-content: $justify;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 
 @mixin grid($cols, $gap) {
+  position: relative;
   display: grid;
   grid-template-columns: repeat($cols, 1fr);
   grid-template-rows: auto;
   gap: px-to-rem($gap);
   overflow: hidden;
+  justify-items: center;
+
+  @include breakpoint-up(medium) {
+    grid-template-columns: repeat($cols + 1, 1fr);
+  }
+
+  @include breakpoint-up(large) {
+    grid-template-columns: repeat($cols + 2, 1fr);
+  }
+  @include breakpoint-up(xlarge) {
+    grid-template-columns: repeat($cols + 3, 1fr);
+    gap: px-to-rem($gap + 10);
+  }
 }
 
 @mixin top-right($top, $right) {
   position: absolute;
   top: px-to-rem($top);
   right: px-to-rem($right);
+}
+@mixin bottom-center($bottom) {
+  position: absolute;
+  bottom: px-to-rem($bottom);
+  width: 100%;
 }
 @mixin absolute-position-all($val) {
   position: absolute;

@@ -22,7 +22,10 @@ $font-heavy: 700 !default;
 $spacing-xs: px-to-rem(5) !default;
 $spacing-sm: px-to-rem(10);
 $spacing-md: 1rem !default;
-$spacing-lg: 2rem;
+$spacing-lg: px-to-rem(20);
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 4rem;
 
 //shadow
 $light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -33,6 +36,7 @@ $transition: all 0.5s ease-in-out !default;
 $bezier: cubic-bezier(0.5, 1.6, 0.4, 0.7);
 //width
 $max-width: 1170px;
+$card-width: px-to-rem(250);
 //variables file
 
 //border

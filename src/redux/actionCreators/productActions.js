@@ -4,12 +4,16 @@ import {
   GET_DETAILS,
   REMOVE_DETAILS,
   LOADING_STATUS,
+  FILTER_PRODUCTS,
 } from "../constants/actionTypes";
 import axios from "axios";
 
 //actions to change state
 export function setProducts(products) {
   return { type: SET_PRODUCTS, payload: { products } };
+}
+export function filterProducts(products) {
+  return { type: FILTER_PRODUCTS, payload: { products } };
 }
 
 export function setLoading(status) {

@@ -28,18 +28,16 @@ function Product({
       </article>
       <div className="product__footer">
         <Link to={`/product/${id}`}>
-          <button className="product__footer--button styled-button">
+          <button className="product__footer--details styled-button">
             More details
           </button>
         </Link>
-        <div>
-          <button
-            className="product__footer--button styled-button"
-            onClick={() => add({ id, image, price, title })}
-          >
-            Add to Cart
-          </button>
-        </div>
+        <button
+          className="product__footer--add styled-button"
+          onClick={() => add({ id, image, price, title })}
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   );

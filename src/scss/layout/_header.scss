@@ -50,7 +50,8 @@ header {
         padding: px-to-rem(4) px-to-rem(7);
         border: 3px solid $secondary-color;
         z-index: 10;
-        transition-timing-function: $bezier;
+        transition: $transition;
+        transform: scale(0.9);
         @include breakpoint-up(medium) {
           @include top-right(-5, -4);
         }
@@ -61,7 +62,7 @@ header {
           transform: scale(1.1) rotate(-10deg);
         }
         .nav__cart--count {
-          transform: scale(1.1);
+          transform: scale(1);
         }
       }
     }

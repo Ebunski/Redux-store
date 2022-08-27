@@ -5,6 +5,16 @@
 }
 
 .error {
+  min-height: 100vh;
   background: url("../../images/error.jpg");
   background-repeat: no-repeat;
+  background-position: center 0px;
+  background-size: cover;
+
+  &__attribution {
+    position: absolute;
+    bottom: 10px;
+    left: 50;
+    color: grey;
+  }
 }

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Loading from "./Loading";
+import PoorConnection from "./PoorConnection";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -50,18 +51,8 @@ JSX
 ============================
 */
 
-  if (loading.state)
-    return (
-      <div className="container">
-        <Loading />
-      </div>
-    );
-  if (loading.error)
-    return (
-      <div className="container">
-        <h3> Please check your internet connection </h3>
-      </div>
-    );
+  if (loading.state) return <Loading />;
+  if (loading.error) return <PoorConnection />;
   return (
     <div className="details">
       <img className="details__image" src={image} alt={title} />
