@@ -4,6 +4,7 @@ import {
   DECREASE_ITEM,
   GET_TOTALS,
   CLEAR_CART,
+  SET_CART,
 } from "../constants/actionTypes";
 
 const initialState = {
@@ -14,6 +15,8 @@ const initialState = {
 
 export default function cartReducer(state = initialState, action) {
   switch (action.type) {
+    case SET_CART:
+      return { ...action.payload.cart };
     case ADD_TO_CART:
       const newItem = action.payload;
       console.log(newItem);

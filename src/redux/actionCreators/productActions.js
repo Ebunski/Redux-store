@@ -1,9 +1,9 @@
 import {
   SET_PRODUCTS,
-  FETCH_ERROR,
-  FETCH_START,
+  FETCH_STATUS,
   GET_DETAILS,
   REMOVE_DETAILS,
+  LOADING_STATUS,
 } from "../constants/actionTypes";
 import axios from "axios";
 
@@ -12,33 +12,41 @@ export function setProducts(products) {
   return { type: SET_PRODUCTS, payload: { products } };
 }
 
-
-export function fetchStart() {
-  return { type: FETCH_START };
+export function setLoading(status) {
+  return { type: LOADING_STATUS, payload: { status } };
 }
 
-export function fetchError(error) {
-  return { type: FETCH_ERROR, payload: { error } };
+export function setError(error) {
+  return { type: FETCH_STATUS, payload: { error } };
 }
 
 export function setDetails(details) {
   return { type: GET_DETAILS, payload: { details } };
 }
-export function removeDetails(details) {
+export function removeDetails() {
   return { type: REMOVE_DETAILS };
 }
 
 //thunk middleware allows us to return a function not just an object of action - so we can use dispatch
 
 //makes request
-export async function fetchProducts(dispatch) {
-  try {
-    dispatch(fetchStart);
-    const response = await axios.get("https://fakestoreapi.com/products");
-    dispatch(setProducts(response.data));
-    console.log(response.data);
-  } catch (error) {
-    console.log(error);
-    dispatch(fetchError(error.message));
+export function fetchProducts(dispatch) {
+  console.log("called1");
+
+  async function fetcher(dispatch) {
+    console.log("called2");
+    try {
+      dispatch(setLoading(true));
+      const response = await axios.get("https://fakestoreapi.com/products");
+      dispatch(setProducts(response.data));
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+      dispatch(setError(error.message));
+    } finally {
+      dispatch(setLoading(false));
+    }
   }
+
+  fetcher(dispatch);
 }

@@ -25,7 +25,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: $font-medium;
+  font-weight: $font-normal;
   text-transform: capitalize;
   line-height: 1.25;
   margin-bottom: px-to-rem(12);
@@ -87,31 +87,26 @@ main {
   width: 100%;
 }
 
-.section {
+section {
   margin-inline: auto;
-  padding-top: px-to-rem(32);
+  padding-top: $spacing-lg;
   width: min(100%, $max-width);
   color: black;
-  padding-inline: px-to-rem(16);
+  padding-inline: $spacing-md;
 
   @include breakpoint-up(medium) {
-    padding-inline: 2rem;
+    padding-inline: $spacing-lg;
   }
 }
-
-.button {
-  text-transform: capitalize;
+button {
+  position: relative;
+  padding: $spacing-sm;
   background: transparent;
-  border: transparent;
-  border-radius: px-to-rem(5);
+  color: $primary-color;
+  text-transform: capitalize;
+  border: 3px solid $primary-color;
+  border-radius: $radius-sm;
   cursor: pointer;
-  padding: px-to-rem(10);
-  background: lighten($primary-color, 10%);
-  color: $secondary-color;
-
-  &:hover {
-    background: darken($secondary-color, 10%);
-    transition: $transition;
-    color: $primary-color;
-  }
+  transition: $transition;
+  z-index: 1;
 }

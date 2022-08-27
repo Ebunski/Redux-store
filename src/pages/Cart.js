@@ -1,17 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import CartItem from "../components/CartItem";
-import {clearCart} from "../redux/actionCreators/cartActions";
+import Summary from "../components/Summary";
+import { clearCart } from "../redux/actionCreators/cartActions";
 import { connect } from "react-redux";
 
-function Cart({ cartItems , handleClear,}) {
+function Cart({ cartItems, handleClear }) {
   const items = cartItems.map((x) => <CartItem key={x.id} {...x} />);
   if (cartItems.length < 1) return "Your cart is empty";
   return (
-    <section className="section cart">
-      
+    <section className=" cart">
       <h3 className=""> Cart ({cartItems.length}) </h3>
       {items}
-      <button className="button cart__clear" onClick = {handleClear}>Clear all</button>
+      <button className="button cart__clear" onClick={handleClear}>
+        Clear all
+      </button>
+      <Summary />
     </section>
   );
 }

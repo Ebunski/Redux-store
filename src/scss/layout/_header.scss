@@ -1,45 +1,68 @@
 @use "../utils" as *;
 
 $header-font: clamp(px-to-rem(32), px-to-rem(16) + 2vw, px-to-rem(48));
+
 header {
   background-color: $secondary-color;
   box-shadow: $light-shadow;
-  padding-block: px-to-rem(20);
+  padding-block: $spacing-md;
 
   .nav {
     @include flex(row, space-between);
-    padding-inline: px-to-rem(10);
+    padding-inline: $spacing-sm;
     @include breakpoint-up(medium) {
-      padding-inline: px-to-rem(16);
+      padding-inline: $spacing-md;
     }
 
     &__logo {
       color: $primary-color;
       @include flex(row, flex-start);
-      gap: px-to-rem(5);
+      gap: $spacing-xs;
       svg {
         height: $header-font;
       }
       &--title {
-        padding-top: px-to-rem(10);
+        padding-top: $spacing-sm;
+
+        &:hover {
+          color: lighten($primary-color, 10%);
+        }
       }
     }
     &__cart {
       position: relative;
-      &--button {
-        @extend .button;
+      z-index: 1;
+
+      &--icon {
+        border: none;
+        position: relative;
         font-size: $header-font;
         color: $primary-color;
+        transition: $transition;
       }
-      &--items {
-        position: absolute;
-        @include top-right(-10, 0);
-        border-radius: $radius-lg;
+      &--count {
+        @include top-right(-4, -3);
+        border-radius: $radius-round;
         color: $secondary-color;
         background: $tertiary-color;
-        font-weight: $font-medium;
-        padding: px-to-rem(5) px-to-rem(8);
+        font-weight: $font-normal;
+        font-size: $font-base;
+        padding: px-to-rem(4) px-to-rem(7);
         border: 3px solid $secondary-color;
+        z-index: 10;
+        transition-timing-function: $bezier;
+        @include breakpoint-up(medium) {
+          @include top-right(-5, -4);
+        }
+      }
+
+      &:hover {
+        .nav__cart--icon {
+          transform: scale(1.1) rotate(-10deg);
+        }
+        .nav__cart--count {
+          transform: scale(1.1);
+        }
       }
     }
   }

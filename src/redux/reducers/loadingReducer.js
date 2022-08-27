@@ -1,24 +1,23 @@
-import { FETCH_ERROR, FETCH_START } from "../constants/actionTypes";
+import { FETCH_STATUS, LOADING_STATUS } from "../constants/actionTypes";
 
-const loadingState = {
+const initialState = {
   state: false,
   error: "",
 };
 
 export default function loadingReducer(
-  state = loadingState,
+  state = initialState,
   { type, payload }
 ) {
   switch (type) {
-    case FETCH_START:
+    case LOADING_STATUS:
       return {
-        state: true,
-        error: "",
+        ...state,
+        state: payload.status,
       };
-    case FETCH_ERROR:
-      console.log(payload);
+    case FETCH_STATUS:
       return {
-        state: false,
+        ...state,
         error: payload.error,
       };
     default:

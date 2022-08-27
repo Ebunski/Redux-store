@@ -3,8 +3,8 @@ import ProductDetails from "../components/ProductDetails";
 
 export default function Details() {
   return (
-    <div className="section">
+    <section>
       <ProductDetails />
-    </div>
+    </section>
   );
 }

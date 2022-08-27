@@ -30,14 +30,10 @@
       padding-block: px-to-rem(20);
 
       &--title {
-        font-weight: $font-thick;
+        font-weight: $font-heavy;
       }
       &--price {
         @include top-right(10, 10);
-        padding: px-to-rem(10);
-        background-color: lighten($primary-color, 10%);
-        border-radius: $radius-md;
-        color: $secondary-color;
       }
       &--category {
         text-transform: capitalize;
@@ -45,8 +41,8 @@
     }
     &__footer {
       @include flex(row, space-between);
+      gap: px-to-rem(4);
       &--button {
-        @extend .button;
       }
     }
   }

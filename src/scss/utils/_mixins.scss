@@ -1,5 +1,6 @@
 @use "./variables" as *;
 @use "./functions" as *;
+@use "./colors" as *;
 @use "sass:map";
 
 //param:default value
@@ -25,6 +26,13 @@
   position: absolute;
   top: px-to-rem($top);
   right: px-to-rem($right);
+}
+@mixin absolute-position-all($val) {
+  position: absolute;
+  top: $val;
+  left: $val;
+  bottom: $val;
+  right: $val;
 }
 
 $breakpoints-up: (

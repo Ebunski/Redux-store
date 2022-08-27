@@ -1,11 +1,11 @@
 import { SET_PRODUCTS } from "../constants/actionTypes";
 
-const productsState = {
+const initialState = {
   productsList: [],
 };
 
 export default function productReducer(
-  state = productsState,
+  state = initialState,
   { type, payload }
 ) {
   switch (type) {

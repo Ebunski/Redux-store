@@ -1,16 +1,24 @@
 import React, { useEffect } from "react";
+import Loading from "./Loading";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  fetchStart,
+  setLoading,
   setDetails,
-  fetchError,
+  setError,
   removeDetails,
 } from "../redux/actionCreators/productActions";
+import { addProduct } from "../redux/actionCreators/cartActions";
 
+/* 
+============================
+COMPONENT
+============================
+*/
 function ProductDetails() {
   const details = useSelector((state) => state.details);
+  const loading = useSelector((state) => state.loading);
   const { image, title, price, category, description } = details;
   const dispatch = useDispatch();
 
@@ -19,40 +27,57 @@ function ProductDetails() {
 
   async function fetchProductDetails() {
     try {
-      dispatch(fetchStart);
+      dispatch(setLoading(true));
       const response = await axios.get(url);
       dispatch(setDetails(response.data));
       console.log(response.data);
     } catch (error) {
       console.log(error);
-      dispatch(fetchError(error.message));
+      dispatch(setError(error.message));
+    } finally {
+      dispatch(setLoading(false));
     }
   }
   useEffect(() => {
-    id && id !== "" && fetchProductDetails();
+    id && fetchProductDetails();
     return () => {
       dispatch(removeDetails);
     };
   }, [id]);
-  console.log(title);
+  /* 
+============================
+JSX
+============================
+*/
 
+  if (loading.state)
+    return (
+      <div className="container">
+        <Loading />
+      </div>
+    );
+  if (loading.error)
+    return (
+      <div className="container">
+        <h3> Please check your internet connection </h3>
+      </div>
+    );
   return (
-    <div>
-      {Object.keys(details).length === 0 ? (
-        <h1> Loading....</h1>
-      ) : (
-        <div className="details">
-          <img className="details__image" src={image} alt={title} />
-          <div className="details__content">
-            <h3 className="details__content--title">{title}</h3>
-            <div className="details__content--price">${price}</div>
-            <h4 className="details__content--category">{category}</h4>
-            <p className="details__content--description">{description}</p>
+    <div className="details">
+      <img className="details__image" src={image} alt={title} />
+      <div className="details__content">
+        <h3 className="details__content--title">{title}</h3>
+        <div className="details__content--price">${price}</div>
+        <h4 className="details__content--category">{category}</h4>
+        <p className="details__content--description">{description}</p>
 
-            <button className="details__content--button">Add to Cart</button>
-          </div>
-        </div>
-      )}
+        <button
+          className="details__content--button styled-button"
+          onClick={() => dispatch(addProduct({ ...details }))}
+        >
+          Add to Cart
+        </button>
+      </div>
     </div>
   );
 }

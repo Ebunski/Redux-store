@@ -15,10 +15,10 @@
     text-align: center;
     background-color: $secondary-color;
     &--title {
-      font-weight: $font-thick;
+      font-weight: $font-heavy;
     }
     &--price {
-      @extend .button;
+      @extend button;
       padding: px-to-rem(10);
       color: $secondary-color;
       background-color: $primary-color;
@@ -31,7 +31,7 @@
       line-height: 1.5;
     }
     &--button {
-      @extend .button;
+      @extend button;
       padding: px-to-rem(10);
       color: $secondary-color;
       background-color: black;

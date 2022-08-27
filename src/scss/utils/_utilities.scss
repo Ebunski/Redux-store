@@ -1,0 +1,31 @@
+@use "./variables" as *;
+@use "./colors" as *;
+@use "./mixins" as *;
+@use "./base" as *;
+@use "./functions" as *;
+
+.styled-button {
+  &::before {
+    content: "";
+    @include absolute-position-all(-3px);
+    border-radius: $radius-sm;
+    transition: $transition;
+    background-color: $primary-color;
+    transform: scaleX(0);
+    transform-origin: left;
+    z-index: -1;
+  }
+  &:hover {
+    color: $secondary-color;
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.center {
+  @include flex(column, center);
+  min-height: 100vh;
+  gap: $spacing-md;
+}

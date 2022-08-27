@@ -1,0 +1,10 @@
+@use "../utils/" as *;
+.error-svg {
+  fill: red;
+  font-size: $font-big;
+}
+
+.error {
+  background: url("../../images/error.jpg");
+  background-repeat: no-repeat;
+}

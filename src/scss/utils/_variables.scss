@@ -10,23 +10,27 @@
   }
 }
 
-//font
+//font-size
 $font-base: 1rem !default;
 $font-big: 5rem !default;
-$font-medium: 400 !default;
-$font-thick: 700 !default;
+
+//font-weight
+$font-normal: 400 !default;
+$font-heavy: 700 !default;
 
 //spacing
-$spacing-xs: 0.4rem !default;
-$spacing-sm: 1rem !default;
-$spacing-md: 2rem;
+$spacing-xs: px-to-rem(5) !default;
+$spacing-sm: px-to-rem(10);
+$spacing-md: 1rem !default;
+$spacing-lg: 2rem;
+
 //shadow
 $light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 $dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
 //transition
 $transition: all 0.5s ease-in-out !default;
-
+$bezier: cubic-bezier(0.5, 1.6, 0.4, 0.7);
 //width
 $max-width: 1170px;
 //variables file
@@ -34,7 +38,7 @@ $max-width: 1170px;
 //border
 $radius-sm: px-to-rem(5);
 $radius-md: px-to-rem(10);
-$radius-lg: 50%;
+$radius-round: 50%;
 
 //screens (em unit is better than rem for screens)
 //similar to object in js

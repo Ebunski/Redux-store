@@ -2,7 +2,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { connect } from "react-redux";
-
+/* 
+============================
+COMPONENT
+============================
+*/
 function Header({ total }) {
   return (
     <header>
@@ -27,19 +31,25 @@ function Header({ total }) {
           </div>
         </NavLink>
 
-        <NavLink to={"/cart"}>
-          <div className="nav__cart">
-            <button aria-label="cart" className="nav__cart--button">
+        <div className="nav__cart">
+          <NavLink to={"/cart"}>
+            <button aria-label="cart" className="nav__cart--icon">
               <AiOutlineShoppingCart />
             </button>
 
-            <span className="nav__cart--items">{total}</span>
-          </div>
-        </NavLink>
+            <span className="nav__cart--count">{total}</span>
+          </NavLink>
+        </div>
       </nav>
     </header>
   );
 }
+/* 
+============================
+CONNECT
+============================
+*/
+
 const mapStateToProps = (state) => ({ total: state.cart.totalAmount });
 
 export default connect(mapStateToProps)(Header);
