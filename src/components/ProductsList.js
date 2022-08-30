@@ -13,6 +13,7 @@ COMPONENT
 function ProductsList({ productsList = [], loading, getProducts }) {
   useEffect(() => {
     getProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading.state) return <Loading />;
