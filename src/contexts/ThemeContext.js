@@ -7,22 +7,27 @@ export default function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(getTheme());
 
   useEffect(() => {
+    bodyRef.current.className = theme;
     localStorage.setItem("theme", JSON.stringify(theme));
   }, [theme]);
 
   function getTheme() {
     const savedTheme = localStorage.getItem("theme");
-    console.log(savedTheme);
-    if (savedTheme) return JSON.parse(savedTheme);
-    else {
+    if (savedTheme) {
+      bodyRef.current.className = savedTheme.substring(
+        1,
+        savedTheme.length - 1
+      );
+      return JSON.parse(savedTheme);
+    } else {
       const preference = getPreference();
-      bodyRef.current.className = preference;
       return preference;
     }
   }
 
   function getPreference() {
     console.log("checking preferences....");
+    if (!window.matchMedia) return;
 
     if (window.matchMedia("(prefers-color-scheme: dark)").matches)
       return "dark";
@@ -32,10 +37,10 @@ export default function ThemeProvider({ children }) {
   }
 
   function changeTheme() {
-    console.log(theme);
-    const newTheme = theme === "light" ? "dark" : "light";
+    let newTheme;
+    if (theme === "light") newTheme = "dark";
+    if (theme === "dark") newTheme = "light";
     setTheme(newTheme);
-    bodyRef.current.className = newTheme;
   }
 
   return (

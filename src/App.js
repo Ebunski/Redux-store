@@ -20,12 +20,10 @@ export default function App() {
 
   useEffect(() => {
     dispatch(getTotals());
-    console.log("totals");
   }, [cartItems]);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
-    console.log("posted");
   }, [cart]);
 
   return (
