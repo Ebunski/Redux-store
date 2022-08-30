@@ -19,7 +19,6 @@ export default function cartReducer(state = initialState, action) {
       return { ...action.payload.cart };
     case ADD_TO_CART:
       const newItem = action.payload;
-      console.log(newItem);
 
       const existingItem = state.cartItems.find((x) => x.id === newItem.id);
       const itemIncremented = state.cartItems.map((x) =>

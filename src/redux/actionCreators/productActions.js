@@ -35,17 +35,12 @@ export function removeDetails() {
 
 //makes request
 export function fetchProducts(dispatch) {
-  console.log("called1");
-
   async function fetcher(dispatch) {
-    console.log("called2");
     try {
       dispatch(setLoading(true));
       const response = await axios.get("https://fakestoreapi.com/products");
       dispatch(setProducts(response.data));
-      console.log(response.data);
     } catch (error) {
-      console.log(error);
       dispatch(setError(error.message));
     } finally {
       dispatch(setLoading(false));

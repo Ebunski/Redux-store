@@ -41,3 +41,9 @@
   min-height: 100vh;
   gap: $spacing-md;
 }
+.backdrop {
+  @include absolute-position-all(0);
+  background-color: black;
+  z-index: 100;
+  opacity: 0.2;
+}

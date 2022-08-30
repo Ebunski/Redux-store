@@ -16,7 +16,6 @@ export default function productReducer(
         filteredList: payload.products,
       };
     case FILTER_PRODUCTS:
-      console.log(payload.category);
       if (payload.category === "all")
         return {
           ...state,

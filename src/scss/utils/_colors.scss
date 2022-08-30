@@ -40,6 +40,8 @@ $light-shadow-dark: 6px 6px 16px 0 rgba(0, 0, 0, 0.51),
   -6px -6px 16px 0 rgba(255, 255, 255, 0.05);
 $dark-shadow-dark: 0 5px 15px rgba(0, 0, 0, 0.2);
 
+
+
 .dark {
   --secondary-color: #{$secondary-color-dark};
   --primary-color: #{$primary-color-dark};
