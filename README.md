@@ -50,7 +50,9 @@ Users should be able to:
   using useSelector, useDispatch and the connect functions
   setting up store and using the reducers, action creators, constants and thunk middleware
 - Reusing components with the composition method (children)
-
+- Light and dark theme:
+  checking for preferred color theme and storing in local storage and also allowing toggle.
+  
 2. Css
 
 - The sass workflow:
