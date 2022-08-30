@@ -16,6 +16,9 @@
   @include breakpoint-up(large) {
     width: px-to-rem(300);
   }
+  &__image--container {
+    position: relative;
+  }
 
   &__image {
     object-fit: contain;

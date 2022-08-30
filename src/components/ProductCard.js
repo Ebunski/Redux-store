@@ -1,10 +1,6 @@
 import React from "react";
+import { useThemeContext } from "../contexts/ThemeContext";
 
-/* 
-============================
-COMPONENT
-============================
-*/
 export default function ProductCard({
   image,
   category,
@@ -13,10 +9,21 @@ export default function ProductCard({
   children,
   location,
 }) {
-  console.log(category);
+  const { theme } = useThemeContext();
+  const isDark = theme === "dark";
+
+  /* 
+============================
+JSX
+============================
+*/
   return (
     <div className="product">
-      <img className="product__image" src={image} alt={title} />
+      <div className="product__image--container">
+        {isDark && <div className="backdrop"></div>}
+        <img className="product__image" src={image} alt={title} />
+      </div>
+
       <article className="product__content">
         <h4 className="product__content--title">{title.substring(0, 50)}...</h4>
         <p className="product__content--price">${price}</p>

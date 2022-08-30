@@ -15,7 +15,7 @@ $font-base: 1rem !default;
 $font-md: px-to-rem(20);
 $font-lg: 2rem !default;
 $font-big: 5rem !default;
-$header-font: clamp(px-to-rem(32), px-to-rem(16) + 2vw, px-to-rem(48));
+$header-font: clamp(px-to-rem(24), px-to-rem(16) + 2vw, px-to-rem(48));
 
 //font-weight
 $font-normal: 400 !default;

@@ -34,14 +34,16 @@ function Header({ total }) {
           </div>
         </NavLink>
 
-        <button className = "nav__toggle" aria-label="toggle dark mode" onClick={changeTheme}>
+        <button
+          className="nav__toggle"
+          aria-label="toggle dark mode"
+          onClick={changeTheme}
+        >
           {theme === "light" ? <BsMoon /> : <BsSun />}
         </button>
         <div className="nav__pagination">
           <NavLink to={"/"}>
-            <button aria-label="cart" className="styled-button">
-              Home
-            </button>
+            <button className="home-button styled-button">Home</button>
           </NavLink>
 
           <div className="nav__cart">

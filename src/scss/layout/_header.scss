@@ -23,9 +23,7 @@ header {
       &--title {
         padding-top: $spacing-sm;
 
-        &:hover {
-          // color: lighten(#{var(--primary-color), 10%);
-        }
+        font-size: #{$header-font};
       }
     }
     &__toggle {
@@ -39,7 +37,13 @@ header {
     &__pagination {
       @include flex(row);
       overflow: visible;
-      gap: $spacing-md;
+      gap: $spacing-xs;
+
+      .home-button {
+        @include breakpoint-down(medium) {
+          padding: $spacing-xs;
+        }
+      }
     }
     &__cart {
       position: relative;
