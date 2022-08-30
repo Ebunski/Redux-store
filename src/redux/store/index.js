@@ -1,4 +1,3 @@
-import react from "react";
 import {
   legacy_createStore as createStore,
   applyMiddleware,
