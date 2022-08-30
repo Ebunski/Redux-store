@@ -16,11 +16,11 @@ export default function App() {
 
   useEffect(() => {
     dispatch(fetchRequest);
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getTotals());
-  }, [cartItems]);
+  }, [dispatch, cartItems]);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
