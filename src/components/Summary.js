@@ -4,13 +4,13 @@ import { connect } from "react-redux";
 
 function Summary({ totalPrice }) {
   return (
-    <article className="cart-summary">
-      <h3 className="cart-summary__title">cart summary</h3>
-      <div className="cart-summary__content">
-        <p>Subtotal</p>
-        <h4>{totalPrice}</h4>
+    <article className="cart__summary">
+      <h3 className="cart__summary--title">cart summary</h3>
+      <div className="cart__summary--content">
+        <p>Subtotal:</p>
+        <span className="cart__summary--price">${totalPrice}</span>
       </div>
-      <button className="cart-summary__button styled-button">Checkout </button>
+      <button className="styled-button">Checkout </button>
     </article>
   );
 }

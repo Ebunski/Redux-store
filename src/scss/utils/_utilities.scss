@@ -10,17 +10,29 @@
     @include absolute-position-all(-3px);
     border-radius: $radius-sm;
     transition: $transition;
-    background-color: $primary-color;
+    background-color: var(--primary-color);
     transform: scaleX(0);
     transform-origin: left;
     z-index: -1;
   }
   &:hover {
-    color: $secondary-color;
+    color: var(--on-primary);
 
     &::before {
       transform: scaleX(1);
     }
+  }
+}
+.active-btn {
+  color: var(--on-primary);
+  &::before {
+    content: "";
+    @include absolute-position-all(-3px);
+    border-radius: $radius-sm;
+    transition: $transition;
+    background-color: var(--primary-color);
+    transform-origin: left;
+    z-index: -1;
   }
 }
 

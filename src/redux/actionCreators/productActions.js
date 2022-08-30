@@ -12,8 +12,8 @@ import axios from "axios";
 export function setProducts(products) {
   return { type: SET_PRODUCTS, payload: { products } };
 }
-export function filterProducts(products) {
-  return { type: FILTER_PRODUCTS, payload: { products } };
+export function filterProducts(category) {
+  return { type: FILTER_PRODUCTS, payload: { category } };
 }
 
 export function setLoading(status) {

@@ -1,0 +1,89 @@
+@use "../utils/" as *;
+
+.product {
+  @include flex(column, center);
+  gap: $spacing-lg;
+  position: relative;
+  width: px-to-rem(250);
+  text-align: center;
+  color: var(--on-surface);
+  background-color: var(--surface-color);
+  box-shadow: var(--light-shadow);
+  padding: $spacing-lg;
+  border-radius: $radius-md;
+  transition: $transition;
+
+  @include breakpoint-up(large) {
+    width: px-to-rem(300);
+  }
+
+  &__image {
+    object-fit: contain;
+    width: 100%;
+    height: px-to-rem(100);
+  }
+  &__content {
+    // padding-top: $spacing-md;
+    &--title {
+      font-weight: $font-heavy;
+    }
+    &--price {
+      @include top-right(10, 10);
+      font-weight: $font-heavy;
+      color: var(--primary-color);
+    }
+    &--category {
+      text-transform: capitalize;
+      // padding-block: $spacing-md;
+      padding-bottom: $spacing-2xl;
+    }
+  }
+  &__list-footer {
+    @include bottom-center(15);
+    @include flex(row, space-around);
+    width: calc(100% - 2.5rem);
+    gap: $spacing-sm;
+
+    &--details,
+    &--add {
+      transform: translateY(100px);
+      transition: $transition;
+    }
+  }
+  /*for cart*/
+  &__cart-footer {
+    @include flex(row);
+    gap: $spacing-xl;
+    &--quantity {
+      @include flex(row, space-between);
+      gap: $spacing-sm;
+      font-weight: $font-heavy;
+    }
+  }
+  /*for cart*/
+
+  /*
+    ================
+    HOVER EFFECTS
+   =================
+    */
+
+  //2xl = 3rem
+  &:hover {
+    box-shadow: var(--dark-shadow);
+    transform: translateY(-10px);
+
+    .product {
+      &__list-footer {
+        &--details {
+          transform: translateY(0);
+          transition-delay: 0.1s;
+        }
+        &--add {
+          transform: translateY(0);
+          transition-delay: 0.2s;
+        }
+      }
+    }
+  }
+}

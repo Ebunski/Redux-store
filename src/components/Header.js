@@ -1,13 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { BsMoon, BsSun } from "react-icons/bs";
 import { connect } from "react-redux";
+import { useThemeContext } from "../contexts/ThemeContext";
 /* 
 ============================
 COMPONENT
 ============================
 */
 function Header({ total }) {
+  const { theme, changeTheme } = useThemeContext();
   return (
     <header>
       <nav className="nav">
@@ -31,14 +34,25 @@ function Header({ total }) {
           </div>
         </NavLink>
 
-        <div className="nav__cart">
-          <NavLink to={"/cart"}>
-            <button aria-label="cart" className="nav__cart--icon">
-              <AiOutlineShoppingCart />
+        <button className = "nav__toggle" aria-label="toggle dark mode" onClick={changeTheme}>
+          {theme === "light" ? <BsMoon /> : <BsSun />}
+        </button>
+        <div className="nav__pagination">
+          <NavLink to={"/"}>
+            <button aria-label="cart" className="styled-button">
+              Home
             </button>
-
-            <span className="nav__cart--count">{total}</span>
           </NavLink>
+
+          <div className="nav__cart">
+            <NavLink to={"/cart"}>
+              <button aria-label="cart" className="nav__cart--icon">
+                <AiOutlineShoppingCart />
+              </button>
+
+              <span className="nav__cart--count">{total}</span>
+            </NavLink>
+          </div>
         </div>
       </nav>
     </header>

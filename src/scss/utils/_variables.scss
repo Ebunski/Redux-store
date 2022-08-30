@@ -12,7 +12,10 @@
 
 //font-size
 $font-base: 1rem !default;
+$font-md: px-to-rem(20);
+$font-lg: 2rem !default;
 $font-big: 5rem !default;
+$header-font: clamp(px-to-rem(32), px-to-rem(16) + 2vw, px-to-rem(48));
 
 //font-weight
 $font-normal: 400 !default;
@@ -26,10 +29,6 @@ $spacing-lg: px-to-rem(20);
 $spacing-xl: 2rem;
 $spacing-2xl: 3rem;
 $spacing-3xl: 4rem;
-
-//shadow
-$light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-$dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
 //transition
 $transition: all 0.5s ease-in-out !default;

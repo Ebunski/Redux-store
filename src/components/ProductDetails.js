@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Loading from "./Loading";
-import PoorConnection from "./PoorConnection";
+import Error from "./Error";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -52,15 +52,18 @@ JSX
 */
 
   if (loading.state) return <Loading />;
-  if (loading.error) return <PoorConnection />;
+  if (loading.error) return <Error type="network" />;
   return (
     <div className="details">
       <img className="details__image" src={image} alt={title} />
       <div className="details__content">
         <h3 className="details__content--title">{title}</h3>
-        <div className="details__content--price">${price}</div>
-        <h4 className="details__content--category">{category}</h4>
+
         <p className="details__content--description">{description}</p>
+
+        <h4 className="details__content--category">{category}</h4>
+
+        <p className="details__content--price">${price}</p>
 
         <button
           className="details__content--button styled-button"

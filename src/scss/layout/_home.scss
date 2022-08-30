@@ -1,85 +1,11 @@
 @use "../utils/" as *;
+.category__container {
+  @include flex(row, center);
+  width: 100%;
+  padding-top: $spacing-2xl;
+  gap: $spacing-md;
+}
 
 .products-list {
-  @include grid(1, 15);
-
-  .product {
-    @include flex(column, center);
-    gap: $spacing-lg;
-    position: relative;
-    width: px-to-rem(250);
-    text-align: center;
-    color: $tertiary-color;
-    background-color: $secondary-color;
-    box-shadow: $light-shadow;
-    padding: $spacing-lg;
-    border-radius: $radius-md;
-    transition: $transition;
-
-    @include breakpoint-up(large) {
-      width: px-to-rem(300);
-    }
-
-    &__image {
-      object-fit: contain;
-      width: 100%;
-      height: px-to-rem(100);
-    }
-    &__content {
-      // padding-top: $spacing-md;
-      &--title {
-        font-weight: $font-heavy;
-      }
-      &--price {
-        @include top-right(10, 10);
-        font-weight: $font-heavy;
-        color: $primary-color;
-      }
-      &--category {
-        text-transform: capitalize;
-        // padding-block: $spacing-md;
-        padding-bottom: $spacing-2xl;
-      }
-    }
-    &__footer {
-      @include bottom-center(15);
-      @include flex(row, space-around);
-      width: calc(100% - 2.5rem);
-      gap: $spacing-sm;
-
-      &--details,
-      &--add {
-        transform: translateY(100px);
-        transition: $transition;
-      }
-    }
-
-    /*
-    ================
-    HOVER EFFECTS
-   =================
-    */
-
-    //2xl = 3rem
-    &:hover {
-      box-shadow: $dark-shadow;
-      transform: translateY(-10px);
-
-      .product {
-        &__content {
-          // padding-top: $spacing-lg;
-        }
-        &__footer {
-          &--details {
-            transform: translateY(0);
-            transition-delay: 0.1s;
-          }
-          &--add {
-            transform: translateY(0);
-            transition-delay: 0.2s;
-          }
-        }
-      }
-    }
-  }
+  @include grid(1, 15, true);
 }

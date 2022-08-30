@@ -1,57 +1,33 @@
 @use "../utils" as *;
 
 .cart {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  .cart-item-container {
-    display: flex;
-    background: $secondary-color;
-    flex-direction: column;
-    gap: $spacing-sm;
-    padding: $spacing-sm;
-    margin-bottom: $spacing-md;
-    border-radius: $radius-md;
-  }
-  .cart-item {
-    width: px-to-rem(300);
-    display: flex;
-    align-items: center;
-    gap: px-to-rem(10);
+  @include flex(column);
+  gap: $spacing-xl;
+  padding-bottom: $spacing-2xl;
+  &__content {
+    padding-top: $spacing-2xl;
+    @include flex(row, center);
+    gap: $spacing-xl;
 
     @include breakpoint-up(medium) {
-      width: px-to-rem(600);
-    }
-
-    &__image {
-      height: 200px;
-    }
-    &__text {
-      display: flex;
-      flex-direction: column;
-
-      gap: px-to-rem(10);
-
-      &--title {
-        display: flex;
-        flex-wrap: wrap;
-        font-weight: $font-normal;
-      }
-      &--price {
-        font-weight: $font-heavy;
-        color: $primary-color;
-      }
     }
   }
 
-  .cart-buttons {
-    @include flex(row, space-around);
-    gap: px-to-rem(20);
-    .quantity-buttons {
-      @include flex(row, space-between);
-      gap: px-to-rem(10);
-      background: darken($secondary-color, 20%);
+  &__summary {
+    @include grid(1, 4);
+    width: 300px;
+    border-radius: $radius-md;
+    background-color: var(--surface-color);
+    color: var(--on-surface);
+    box-shadow: var(--light-shadow);
+    padding: $spacing-lg;
+
+    &--content {
+      @include grid(2, 16);
+      padding-block: $spacing-sm;
+    }
+    &--price {
+      font-weight: $font-heavy;
     }
   }
 }

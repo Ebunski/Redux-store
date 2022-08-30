@@ -1,11 +1,10 @@
 @use "../utils" as *;
 
-$header-font: clamp(px-to-rem(32), px-to-rem(16) + 2vw, px-to-rem(48));
-
 header {
-  background-color: $secondary-color;
-  box-shadow: $light-shadow;
+  background-color: var(--surface-color);
+  box-shadow: var(--light-shadow);
   padding-block: $spacing-md;
+  transition: $transition;
 
   .nav {
     @include flex(row, space-between);
@@ -15,19 +14,32 @@ header {
     }
 
     &__logo {
-      color: $primary-color;
+      color: var(--primary-color);
       @include flex(row, flex-start);
       gap: $spacing-xs;
       svg {
-        height: $header-font;
+        height: #{$header-font};
       }
       &--title {
         padding-top: $spacing-sm;
 
         &:hover {
-          color: lighten($primary-color, 10%);
+          // color: lighten(#{var(--primary-color), 10%);
         }
       }
+    }
+    &__toggle {
+      font-size: $font-md;
+      border: none;
+
+      @include breakpoint-up(medium) {
+        font-size: $font-lg;
+      }
+    }
+    &__pagination {
+      @include flex(row);
+      overflow: visible;
+      gap: $spacing-md;
     }
     &__cart {
       position: relative;
@@ -36,19 +48,19 @@ header {
       &--icon {
         border: none;
         position: relative;
-        font-size: $header-font;
-        color: $primary-color;
+        font-size: #{$header-font};
+        color: var(--secondary-color);
         transition: $transition;
       }
       &--count {
         @include top-right(-4, -3);
         border-radius: $radius-round;
-        color: $secondary-color;
-        background: $tertiary-color;
+        color: var(--on-secondary);
+        background: var(--secondary-color);
         font-weight: $font-normal;
         font-size: $font-base;
         padding: px-to-rem(4) px-to-rem(7);
-        border: 3px solid $secondary-color;
+        border: 3px solid var(--surface-color);
         z-index: 10;
         transition: $transition;
         transform: scale(0.9);

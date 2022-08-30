@@ -2,6 +2,7 @@ import { SET_PRODUCTS, FILTER_PRODUCTS } from "../constants/actionTypes";
 
 const initialState = {
   productsList: [],
+  filteredList: [],
 };
 
 export default function productReducer(
@@ -12,11 +13,19 @@ export default function productReducer(
     case SET_PRODUCTS:
       return {
         productsList: payload.products,
+        filteredList: payload.products,
       };
     case FILTER_PRODUCTS:
+      console.log(payload.category);
+      if (payload.category === "all")
+        return {
+          ...state,
+          filteredList: state.productsList,
+        };
       return {
-        productsList: state.productsList.filter(
-          (x) => x.category === payload.item
+        ...state,
+        filteredList: state.productsList.filter(
+          (x) => x.category === payload.category
         ),
       };
     default:

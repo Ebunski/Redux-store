@@ -3,9 +3,13 @@
   fill: red;
   font-size: $font-big;
 }
+.cart-svg {
+  fill: var(--secondary-color);
+  font-size: $font-big;
+}
 
 .error {
-  min-height: 100vh;
+  height: calc(100vh - $spacing-3xl);
   background: url("../../images/error.jpg");
   background-repeat: no-repeat;
   background-position: center 0px;
@@ -15,6 +19,6 @@
     position: absolute;
     bottom: 10px;
     left: 50;
-    color: grey;
+    color: var(--sub-text-color);
   }
 }

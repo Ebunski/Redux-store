@@ -1,4 +1,5 @@
 import React from "react";
+import ProductCard from "./ProductCard";
 import { connect } from "react-redux";
 import {
   addProduct,
@@ -23,23 +24,15 @@ function CartItem({
   handleRemove,
 }) {
   return (
-    <div className="cart-item-container">
-      <article className="cart-item">
-        <img className="cart-item__image" src={image} alt={title} />
-        <div className="cart-item__text">
-          <h4 className="cart-item__text--title">
-            {title.substring(0, 50)}...
-          </h4>
-          <p
-            className="cart-item__text--price 
-          "
-          >
-            ${price}
-          </p>
-        </div>
-      </article>
-
-      <div className="cart-buttons">
+    <ProductCard
+      id={id}
+      image={image}
+      price={price}
+      title={title}
+      location="cart"
+    >
+      <div className="product__cart-footer">
+        {" "}
         <button
           aria-label="remove-product"
           className="styled-button"
@@ -47,7 +40,7 @@ function CartItem({
         >
           <AiOutlineDelete />
         </button>
-        <div className="quantity-buttons">
+        <div className="product__cart-footer--quantity">
           <button
             aria-label="increase quantity"
             className=" styled-button"
@@ -65,7 +58,7 @@ function CartItem({
           </button>
         </div>
       </div>
-    </div>
+    </ProductCard>
   );
 }
 

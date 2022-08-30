@@ -1,40 +1,52 @@
 @use "../utils/" as *;
 
 .details {
-  @include grid(2, 20);
+  @include grid(1, 20);
+  padding-block: $spacing-xl;
 
+  @include breakpoint-up(large) {
+    @include grid-unequal(2, (1fr 4fr), 10);
+  }
+
+  &__image,
+  &__content {
+    background-color: var(--surface-color);
+    box-shadow: var(--light-shadow);
+    border-radius: $radius-md;
+    padding: $spacing-xl;
+  }
   &__image {
     justify-self: center;
-    max-height: 500px;
+    align-self: center;
+    max-width: 300px;
+    color: var(--surface-color);
+    @include breakpoint-up(large) {
+      justify-self: right;
+      max-width: 450px;
+    }
   }
 
   &__content {
     @include flex(column, center);
-    gap: px-to-rem(15);
-    padding: px-to-rem(30);
+    gap: $spacing-md;
     text-align: center;
-    background-color: $secondary-color;
+
     &--title {
       font-weight: $font-heavy;
     }
-    &--price {
-      @extend button;
-      padding: px-to-rem(10);
-      color: $secondary-color;
-      background-color: $primary-color;
-    }
-    &--category {
-      color: $gray;
-    }
     &--description {
-      padding-block: px-to-rem(10);
+      padding-block: $spacing-lg;
       line-height: 1.5;
     }
+    &--category {
+      color: var(--sub-text-color);
+    }
+    &--price {
+      color: var(--primary-color);
+      font-weight: $font-heavy;
+    }
     &--button {
-      @extend button;
-      padding: px-to-rem(10);
-      color: $secondary-color;
-      background-color: black;
+      color: var(--primary-color);
     }
   }
 }

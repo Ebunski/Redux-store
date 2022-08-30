@@ -13,12 +13,13 @@ html {
 }
 
 body {
-  background-color: $home-color;
-  color: #000;
+  background-color: var(--background-color);
+  color: var(--on-background);
   height: 100vh;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1;
   width: 100%;
+  transition: $transition;
 }
 
 h1,
@@ -67,12 +68,12 @@ h4 {
 }
 
 a {
-  color: set-text-color(black);
+  color: var(--secondary-color);
   text-decoration: none;
   transition: $transition;
-  &:hover {
-    color: $secondary-color;
-  }
+  // &:hover {
+  //   color: $secondary-color;
+  // }
 }
 
 p {
@@ -90,8 +91,9 @@ main {
 section {
   margin-inline: auto;
   padding-top: $spacing-xl;
-  color: black;
+  color: var(--on-background);
   padding-inline: $spacing-md;
+  transition: $transition;
 
   @include breakpoint-up(medium) {
     padding-inline: $spacing-xl;
@@ -101,9 +103,9 @@ button {
   position: relative;
   padding: $spacing-sm;
   background: transparent;
-  color: $primary-color;
+  color: var(--on-background);
   text-transform: capitalize;
-  border: 3px solid $primary-color;
+  border: 3px solid var(--primary-color);
   border-radius: $radius-sm;
   cursor: pointer;
   transition: $transition;

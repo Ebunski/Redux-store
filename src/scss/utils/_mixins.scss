@@ -4,18 +4,18 @@
 @use "sass:map";
 
 //param:default value
-@mixin flex($direction, $justify) {
+@mixin flex($direction, $justify: false) {
   display: flex;
-  @if ($justify != null) {
-    flex-direction: $direction;
-  }
+  flex-direction: $direction;
   align-items: center;
-  justify-content: $justify;
   flex-wrap: wrap;
   overflow: hidden;
+  @if ($justify != false) {
+    justify-content: $justify;
+  }
 }
 
-@mixin grid($cols, $gap) {
+@mixin grid($cols, $gap, $responsive: false) {
   position: relative;
   display: grid;
   grid-template-columns: repeat($cols, 1fr);
@@ -23,17 +23,41 @@
   gap: px-to-rem($gap);
   overflow: hidden;
   justify-items: center;
+  @if ($responsive == true) {
+    @include breakpoint-up(medium) {
+      grid-template-columns: repeat($cols + 1, 1fr);
+    }
 
-  @include breakpoint-up(medium) {
-    grid-template-columns: repeat($cols + 1, 1fr);
+    @include breakpoint-up(large) {
+      grid-template-columns: repeat($cols + 2, 1fr);
+    }
+    @include breakpoint-up(xlarge) {
+      grid-template-columns: repeat($cols + 3, 1fr);
+      gap: px-to-rem($gap + 10);
+    }
   }
+}
 
-  @include breakpoint-up(large) {
-    grid-template-columns: repeat($cols + 2, 1fr);
-  }
-  @include breakpoint-up(xlarge) {
-    grid-template-columns: repeat($cols + 3, 1fr);
-    gap: px-to-rem($gap + 10);
+@mixin grid-unequal($cols, $space, $gap, $responsive: false) {
+  position: relative;
+  display: grid;
+  grid-template-columns: $space;
+  grid-template-rows: auto;
+  gap: px-to-rem($gap);
+  overflow: hidden;
+  justify-items: center;
+  @if ($responsive == true) {
+    @include breakpoint-up(medium) {
+      grid-template-columns: repeat($cols + 1, 1fr);
+    }
+
+    @include breakpoint-up(large) {
+      grid-template-columns: repeat($cols + 2, 1fr);
+    }
+    @include breakpoint-up(xlarge) {
+      grid-template-columns: repeat($cols + 3, 1fr);
+      gap: px-to-rem($gap + 10);
+    }
   }
 }
 

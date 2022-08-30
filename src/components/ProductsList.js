@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import Product from "./Product";
 import Loading from "./Loading";
-import PoorConnection from "./PoorConnection";
+import Error from "./Error";
 import { connect } from "react-redux";
 import { fetchProducts } from "../redux/actionCreators/productActions";
-import { AiOutlineWarning } from "react-icons/ai";
 
 /* 
 ============================
@@ -17,7 +16,7 @@ function ProductsList({ productsList = [], loading, getProducts }) {
   }, []);
 
   if (loading.state) return <Loading />;
-  if (loading.error) return <PoorConnection />;
+  if (loading.error) return <Error type="network" />;
 
   const renderList = productsList.map((x) => <Product key={x.id} {...x} />);
 
@@ -32,7 +31,7 @@ CONNECT
 
 function mapStateToProps(state) {
   return {
-    productsList: state.products.productsList,
+    productsList: state.products.filteredList,
     loading: state.loading,
   };
 }
