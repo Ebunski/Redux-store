@@ -34,7 +34,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/Ebunski/Redux-store]
-- Live Site URL: [https://redux-cart-eo.netlify.app/]
+- Live Site URL: []
 
 ### Built with
 
