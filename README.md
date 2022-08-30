@@ -1,4 +1,4 @@
-# 7. Redux store
+#  Redux store
 
 Store created using redux.
 
