@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import {
   ADD_TO_CART,
   DECREASE_ITEM,
@@ -7,7 +7,7 @@ import {
   GET_TOTALS,
   SET_CART,
 } from "../constants/actionTypes";
-import { setLoading, setError } from "./productActions";
+
 
 export function addProduct(obj) {
   return { type: ADD_TO_CART, payload: { ...obj, quantity: 1 } };
